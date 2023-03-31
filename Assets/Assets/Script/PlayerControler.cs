@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 
@@ -8,19 +9,26 @@ public class PlayerControler : MonoBehaviour
 {
     private float movmentInputDirection;
 
+    private int amountOfJumpsLeft;
+
     private bool isFacingRight = true;
     private bool isWalking;
     private bool isGrounded;
+    private bool isTouchingWall;
     private bool canJump;
 
     private Rigidbody2D rb;
     private Animator anim;
 
+    public int amountOfJumps = 1; 
+
     public float movmentSpeed = 10.0f;
     public float jumpForce = 16.0f;
     public float groundCheckRadius;
+    public float wallCheckDistance;
 
     public Transform groundCheck;
+    public Transform wallCheck;
 
     public LayerMask whatIsGround;
 
@@ -29,6 +37,7 @@ public class PlayerControler : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        amountOfJumpsLeft = amountOfJumps;
     }
 
     // Update is called once per frame
@@ -49,11 +58,25 @@ public class PlayerControler : MonoBehaviour
     private void CheckSurrounding()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+
+        isTouchingWall = Physics2D.Raycast(wallCheck.position, transform.right, walllCheckDistance, whatIsGround);
     }
 
-    private void checkIfCanJump()
+    private void CheckIfCanJump()
     {
+        if(isGrounded && rb.velocity.y <= 0)
+        {
+            amountOfJumpsLeft = amountOfJumps;
+        }
 
+        if(amountOfJumpsLeft <= 0)
+        {
+            canJump = false;
+        }
+        else
+        {
+            canJump = true;
+        }
     }
     private void CheckMovementDirection()
     {
@@ -79,6 +102,8 @@ public class PlayerControler : MonoBehaviour
     private void UpdateAnimations()
     {
         anim.SetBool("isWalking", isWalking);
+        anim.SetBool("isGrounded", isGrounded);
+        anim.SetFloat("yVelocity",rb.velocity.y);
     }
     private void CheckInput()
     {
@@ -95,6 +120,7 @@ public class PlayerControler : MonoBehaviour
         if (canJump)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            amountOfJumpsLeft--;
         }
         
     }
