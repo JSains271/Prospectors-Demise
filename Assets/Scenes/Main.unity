@@ -856,6 +856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56562fce54e949049bad8d613816b277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  facingDircetion: 1
   amountOfJumps: 2
   movementSpeed: 10
   jumpForce: 16
@@ -865,6 +866,10 @@ MonoBehaviour:
   movementForceInAir: 0
   airDragMultiplier: 0.95
   VariableJumpHeightMultiplier: 0.5
+  wallHopForce: 0
+  wallJumpForce: 0
+  wallHopDirection: {x: 1, y: 0.5}
+  wallJumpDirection: {x: 1, y: 2}
   groundCheck: {fileID: 1164413451}
   wallCheck: {fileID: 432023612}
   whatIsGround:
