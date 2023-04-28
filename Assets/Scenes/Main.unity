@@ -515,8 +515,10 @@ MonoBehaviour:
   entityData: {fileID: 11400000, guid: f153133a329ce4e47bfc17e7440a64ff, type: 2}
   wallCheck: {fileID: 1346529259}
   ledgeCheck: {fileID: 736193318}
+  playerCheck: {fileID: 0}
   idleStateData: {fileID: 11400000, guid: 81788d30483f7bd4292239d11d0b1382, type: 2}
   moveStateData: {fileID: 11400000, guid: 454e82646ec594a4c97f576902f9e681, type: 2}
+  playerDetectedData: {fileID: 11400000, guid: b63e519f8c4b13c4599a3fae3a4c9426, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

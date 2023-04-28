@@ -12,7 +12,7 @@ public class FiniteStateMachine
         currentState.Enter();
     }
 
-    public void ChamgeState(State newState)
+    public void ChangeState(State newState)
     {
         currentState.Exit();
         currentState = newState;

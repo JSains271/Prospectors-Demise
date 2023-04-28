@@ -24,10 +24,14 @@ public class E1_MoveState : MoveState
     {
         base.LogicUpdate();
 
-        if(isDetectingWall || isDetectingLedge)
+        if (isPlayerInMinArgoRange)
+        {
+            stateMachine.ChangeState(enemy.playerDetectedState);
+        }
+        else if(isDetectingWall || isDetectingLedge)
         {
             enemy.idleState.SetFlipAfterIdle(true);
-            stateMachine.ChamgeState(enemy.idleState);
+            stateMachine.ChangeState(enemy.idleState);
         }
     }
 
