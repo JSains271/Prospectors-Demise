@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class E1_PlayerDetectedState : PlayerDetectedState
 {
-    private Enermy1 enemy;
-    public E1_PlayerDetectedState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_PlayerDetected stateData, Enermy1 enemy) : base(entity, stateMachine, animBoolName, stateData)
+    private Enemy1 enemy;
+
+    public E1_PlayerDetectedState(Entity etity, FiniteStateMachine stateMachine, string animBoolName, D_PlayerDetected stateData, Enemy1 enemy) : base(etity, stateMachine, animBoolName, stateData)
     {
         this.enemy = enemy;
     }
@@ -24,10 +25,22 @@ public class E1_PlayerDetectedState : PlayerDetectedState
     {
         base.LogicUpdate();
 
-        if (!isPlayerInMaxAroRange)
+        if (performCloseRangeAction)
         {
-            enemy.idleState.SetFlipAfterIdle(false);
-            stateMachine.ChangeState(enemy.idleState);
+            stateMachine.ChangeState(enemy.meleeAttackState);
+        }
+        else if (performLongRangeAction)
+        {
+            stateMachine.ChangeState(enemy.chargeState);
+        }
+        else if (!isPlayerInMaxAgroRange)
+        {
+            stateMachine.ChangeState(enemy.lookForPlayerState);
+        }
+        else if (!isDetectingLedge)
+        {
+            entity.Flip();
+            stateMachine.ChangeState(enemy.moveState);
         }
     }
 

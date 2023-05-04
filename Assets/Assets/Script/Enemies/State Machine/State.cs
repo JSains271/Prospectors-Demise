@@ -7,7 +7,7 @@ public class State
     protected FiniteStateMachine stateMachine;
     protected Entity entity;
 
-    protected float startTime;
+    public float startTime { get; protected set; }
 
     protected string animBoolName;
 
@@ -22,6 +22,7 @@ public class State
     {
         startTime= Time.time;
         entity.anim.SetBool(animBoolName, true);
+        DoChecks();
     }
 
     public virtual void Exit()
@@ -35,6 +36,11 @@ public class State
     }
 
     public virtual void PhysicsUpdate()
+    {
+        DoChecks();
+    }
+
+    public virtual void DoChecks()
     {
 
     }

@@ -6,20 +6,33 @@ public class PlayerDetectedState : State
 {
     protected D_PlayerDetected stateData;
 
-    protected bool isPlayerInMinAroRange;
-    protected bool isPlayerInMaxAroRange;
+    protected bool isPlayerInMinAgroRange;
+    protected bool isPlayerInMaxAgroRange;
+    protected bool performLongRangeAction;
+    protected bool performCloseRangeAction;
+    protected bool isDetectingLedge;
 
-    public PlayerDetectedState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_PlayerDetected stateData) : base(entity, stateMachine, animBoolName)
+    public PlayerDetectedState(Entity etity, FiniteStateMachine stateMachine, string animBoolName, D_PlayerDetected stateData) : base(etity, stateMachine, animBoolName)
     {
         this.stateData = stateData;
+    }
+
+    public override void DoChecks()
+    {
+        base.DoChecks();
+
+        isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
+        isPlayerInMaxAgroRange = entity.CheckPlayerInMaxAgroRange();
+        isDetectingLedge = entity.CheckLedge();
+        performCloseRangeAction = entity.CheckPlayerInCloseRangeAction();
     }
 
     public override void Enter()
     {
         base.Enter();
 
-        isPlayerInMinAroRange = entity.CheckPlayerInMinAgroRange();
-        isPlayerInMaxAroRange = entity.CheckPlayerInMaxAgroRange();
+        performLongRangeAction = false;
+        entity.SetVelocity(0f);
     }
 
     public override void Exit()
@@ -30,14 +43,15 @@ public class PlayerDetectedState : State
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+
+        if (Time.time >= startTime + stateData.longRangeActionTime)
+        {
+            performLongRangeAction = true;
+        }
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-
-        isPlayerInMinAroRange = entity.CheckPlayerInMinAgroRange();
-        isPlayerInMaxAroRange = entity.CheckPlayerInMaxAgroRange();
     }
 }
-

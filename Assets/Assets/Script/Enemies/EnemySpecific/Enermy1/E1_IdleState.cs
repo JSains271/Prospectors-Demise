@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class E1_IdleState : IdleState
 {
-    private Enermy1 enemy;
-    public E1_IdleState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_IdleState stateData, Enermy1 enemy) : base(entity, stateMachine, animBoolName, stateData)
+    private Enemy1 enemy;
+    public E1_IdleState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_IdleState stateData, Enemy1 enemy) : base(entity, stateMachine, animBoolName, stateData)
     {
         this.enemy = enemy;
     }
@@ -24,7 +24,7 @@ public class E1_IdleState : IdleState
     {
         base.LogicUpdate();
 
-        if (isPlayerInMinArgoRange)
+        if (isPlayerInMinAgroRange)
         {
             stateMachine.ChangeState(enemy.playerDetectedState);
         }
