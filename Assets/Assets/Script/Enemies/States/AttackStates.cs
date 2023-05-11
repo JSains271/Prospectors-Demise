@@ -4,54 +4,59 @@ using UnityEngine;
 
 public class AttackState : State
 {
-    protected Transform attackPosition;
 
-    protected bool isAnimationFinished;
-    protected bool isPlayerInMinAgroRange;
+	private Movement Movement { get => movement ?? core.GetCoreComponent(ref movement); }
+	private Movement movement;
 
-    public AttackState(Entity etity, FiniteStateMachine stateMachine, string animBoolName, Transform attackPosition) : base(etity, stateMachine, animBoolName)
-    {
-        this.attackPosition = attackPosition;
-    }
+	protected Transform attackPosition;
 
-    public override void DoChecks()
-    {
-        base.DoChecks();
+	protected bool isAnimationFinished;
+	protected bool isPlayerInMinAgroRange;
 
-        isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
-    }
+	public AttackState(Entity etity, FiniteStateMachine stateMachine, string animBoolName, Transform attackPosition) : base(etity, stateMachine, animBoolName)
+	{
+		this.attackPosition = attackPosition;
+	}
 
-    public override void Enter()
-    {
-        base.Enter();
+	public override void DoChecks()
+	{
+		base.DoChecks();
 
-        entity.atsm.attackState = this;
-        isAnimationFinished = false;
-        entity.SetVelocity(0f);
-    }
+		isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
+	}
 
-    public override void Exit()
-    {
-        base.Exit();
-    }
+	public override void Enter()
+	{
+		base.Enter();
 
-    public override void LogicUpdate()
-    {
-        base.LogicUpdate();
-    }
+		entity.atsm.attackState = this;
+		isAnimationFinished = false;
+		Movement?.SetVelocityX(0f);
+	}
 
-    public override void PhysicsUpdate()
-    {
-        base.PhysicsUpdate();
-    }
+	public override void Exit()
+	{
+		base.Exit();
+	}
 
-    public virtual void TriggerAttack()
-    {
+	public override void LogicUpdate()
+	{
+		base.LogicUpdate();
+		Movement?.SetVelocityX(0f);
+	}
 
-    }
+	public override void PhysicsUpdate()
+	{
+		base.PhysicsUpdate();
+	}
 
-    public virtual void FinishAttack()
-    {
-        isAnimationFinished = true;
-    }
+	public virtual void TriggerAttack()
+	{
+
+	}
+
+	public virtual void FinishAttack()
+	{
+		isAnimationFinished = true;
+	}
 }

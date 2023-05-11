@@ -5,16 +5,16 @@ using UnityEngine;
 
 public class PlayerCombatController : MonoBehaviour
 {
-    [SerializeField]
-    private bool combatEnabled;
-    [SerializeField]
-    private float inputTimer, attack1Radius, attack1Damage;
-    [SerializeField]
-    private float stunDamageAmount = 1f;
-    [SerializeField]
-    private Transform attack1HitBoxPos;
-    [SerializeField]
-    private LayerMask whatIsDamageable;
+   /* [SerializeField]
+   private bool combatEnabled;
+   [SerializeField]
+   private float inputTimer, attack1Radius, attack1Damage;
+   [SerializeField]
+   private float stunDamageAmount = 1f;
+   [SerializeField]
+   private Transform attack1HitBoxPos;
+   [SerializeField]
+   private LayerMask whatIsDamageable;
 
     private bool gotInput, isAttacking, isFirstAttack;
 
@@ -123,6 +123,6 @@ public class PlayerCombatController : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(attack1HitBoxPos.position, attack1Radius);
-    }
+    } */
 
 }

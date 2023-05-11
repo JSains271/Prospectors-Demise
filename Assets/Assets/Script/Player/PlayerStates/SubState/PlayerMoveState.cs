@@ -5,41 +5,48 @@ using UnityEngine.Windows;
 
 public class PlayerMoveState : PlayerGroundedState
 {
-    public PlayerMoveState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
-    {
-    }
+	public PlayerMoveState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
+	{
+	}
 
-    public override void DoChecks()
-    {
-        base.DoChecks();
-    }
+	public override void DoChecks()
+	{
+		base.DoChecks();
+	}
 
-    public override void Enter()
-    {
-        base.Enter();
-    }
+	public override void Enter()
+	{
+		base.Enter();
+	}
 
-    public override void Exit()
-    {
-        base.Exit();
-    }
+	public override void Exit()
+	{
+		base.Exit();
+	}
 
-    public override void LogicUpdate()
-    {
-        base.LogicUpdate();
+	public override void LogicUpdate()
+	{
+		base.LogicUpdate();
 
-        player.CheckIfShouldFlip(xInput);
+		Movement?.CheckIfShouldFlip(xInput);
 
-        player.SetVelocityX(playerData.movementVelocity * xInput);
+		Movement?.SetVelocityX(playerData.movementVelocity * xInput);
 
-        if (xInput == 0 && !isExitingState)
-        {
-            stateMachine.ChangeState(player.IdleState);
-        }
-    }
+		if (!isExitingState)
+		{
+			if (xInput == 0)
+			{
+				stateMachine.ChangeState(player.IdleState);
+			}
+			else if (yInput == -1)
+			{
+				stateMachine.ChangeState(player.CrouchMoveState);
+			}
+		}
+	}
 
-    public override void PhysicsUpdate()
-    {
-        base.PhysicsUpdate();
-    }
+	public override void PhysicsUpdate()
+	{
+		base.PhysicsUpdate();
+	}
 }

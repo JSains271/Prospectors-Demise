@@ -4,54 +4,62 @@ using UnityEngine;
 
 public class PlayerDetectedState : State
 {
-    protected D_PlayerDetected stateData;
+	protected Movement Movement { get => movement ?? core.GetCoreComponent(ref movement); }
+	private CollisionSenses CollisionSenses { get => collisionSenses ?? core.GetCoreComponent(ref collisionSenses); }
 
-    protected bool isPlayerInMinAgroRange;
-    protected bool isPlayerInMaxAgroRange;
-    protected bool performLongRangeAction;
-    protected bool performCloseRangeAction;
-    protected bool isDetectingLedge;
+	private Movement movement;
+	private CollisionSenses collisionSenses;
 
-    public PlayerDetectedState(Entity etity, FiniteStateMachine stateMachine, string animBoolName, D_PlayerDetected stateData) : base(etity, stateMachine, animBoolName)
-    {
-        this.stateData = stateData;
-    }
+	protected D_PlayerDetected stateData;
 
-    public override void DoChecks()
-    {
-        base.DoChecks();
+	protected bool isPlayerInMinAgroRange;
+	protected bool isPlayerInMaxAgroRange;
+	protected bool performLongRangeAction;
+	protected bool performCloseRangeAction;
+	protected bool isDetectingLedge;
 
-        isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
-        isPlayerInMaxAgroRange = entity.CheckPlayerInMaxAgroRange();
-        isDetectingLedge = entity.CheckLedge();
-        performCloseRangeAction = entity.CheckPlayerInCloseRangeAction();
-    }
+	public PlayerDetectedState(Entity etity, FiniteStateMachine stateMachine, string animBoolName, D_PlayerDetected stateData) : base(etity, stateMachine, animBoolName)
+	{
+		this.stateData = stateData;
+	}
 
-    public override void Enter()
-    {
-        base.Enter();
+	public override void DoChecks()
+	{
+		base.DoChecks();
 
-        performLongRangeAction = false;
-        entity.SetVelocity(0f);
-    }
+		isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
+		isPlayerInMaxAgroRange = entity.CheckPlayerInMaxAgroRange();
+		isDetectingLedge = CollisionSenses.LedgeVertical;
+		performCloseRangeAction = entity.CheckPlayerInCloseRangeAction();
+	}
 
-    public override void Exit()
-    {
-        base.Exit();
-    }
+	public override void Enter()
+	{
+		base.Enter();
 
-    public override void LogicUpdate()
-    {
-        base.LogicUpdate();
+		performLongRangeAction = false;
+		Movement?.SetVelocityX(0f);
+	}
 
-        if (Time.time >= startTime + stateData.longRangeActionTime)
-        {
-            performLongRangeAction = true;
-        }
-    }
+	public override void Exit()
+	{
+		base.Exit();
+	}
 
-    public override void PhysicsUpdate()
-    {
-        base.PhysicsUpdate();
-    }
+	public override void LogicUpdate()
+	{
+		base.LogicUpdate();
+
+		Movement?.SetVelocityX(0f);
+
+		if (Time.time >= startTime + stateData.longRangeActionTime)
+		{
+			performLongRangeAction = true;
+		}
+	}
+
+	public override void PhysicsUpdate()
+	{
+		base.PhysicsUpdate();
+	}
 }
