@@ -30,7 +30,7 @@ public class E2_MoveState : MoveState
     {
         base.LogicUpdate();
 
-        if (isPlayerInMinArgoRange)
+        if (isPlayerInMinAgroRange)
         {
             stateMachine.ChangeState(enemy.playerDetectedState);
         }

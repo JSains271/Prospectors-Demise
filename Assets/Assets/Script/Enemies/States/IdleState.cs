@@ -4,64 +4,74 @@ using UnityEngine;
 
 public class IdleState : State
 {
-    protected D_IdleState stateData;
+	private Movement Movement { get => movement ?? core.GetCoreComponent(ref movement); }
+	private CollisionSenses CollisionSenses { get => collisionSenses ?? core.GetCoreComponent(ref collisionSenses); }
 
-    protected bool flipAfterIdle;
-    protected bool isIdleTimeOver;
-    protected bool isPlayerInMinAgroRange;
+	private Movement movement;
+	private CollisionSenses collisionSenses;
 
-    protected float idleTime;
-    public IdleState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_IdleState stateData) : base(entity, stateMachine, animBoolName)
-    {
-        this.stateData = stateData;
-    }
+	protected D_IdleState stateData;
 
-    public override void DoChecks()
-    {
-        base.DoChecks();
-        isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
-    }
+	protected bool flipAfterIdle;
+	protected bool isIdleTimeOver;
+	protected bool isPlayerInMinAgroRange;
 
-    public override void Enter()
-    {
-        base.Enter();
+	protected float idleTime;
 
-        entity.SetVelocity(0f);
-        isIdleTimeOver = false;
-        SetRandomIdleTime();
-    }
-    public override void Exit()
-    {
-        base.Exit();
+	public IdleState(Entity etity, FiniteStateMachine stateMachine, string animBoolName, D_IdleState stateData) : base(etity, stateMachine, animBoolName)
+	{
+		this.stateData = stateData;
+	}
 
-        if (flipAfterIdle)
-        {
-            entity.Flip();
-        }
-    }
+	public override void DoChecks()
+	{
+		base.DoChecks();
+		isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
+	}
 
-    public override void LogicUpdate()
-    {
-        base.LogicUpdate();
+	public override void Enter()
+	{
+		base.Enter();
 
-        if(Time.time >= startTime + idleTime)
-        {
-            isIdleTimeOver = true;
-        }
-    }
+		Movement?.SetVelocityX(0f);
+		isIdleTimeOver = false;
+		SetRandomIdleTime();
+	}
 
-    public override void PhysicsUpdate()
-    {
-        base.PhysicsUpdate();
-    }
+	public override void Exit()
+	{
+		base.Exit();
 
-    public void SetFlipAfterIdle(bool flip)
-    {
-        flipAfterIdle = flip;
-    }
+		if (flipAfterIdle)
+		{
+			Movement?.Flip();
+		}
+	}
 
-    private void SetRandomIdleTime()
-    {
-        idleTime = Random.Range(stateData.minIdleTime, stateData.maxIdleTime);
-    }
+	public override void LogicUpdate()
+	{
+		base.LogicUpdate();
+
+		Movement?.SetVelocityX(0f);
+
+		if (Time.time >= startTime + idleTime)
+		{
+			isIdleTimeOver = true;
+		}
+	}
+
+	public override void PhysicsUpdate()
+	{
+		base.PhysicsUpdate();
+	}
+
+	public void SetFlipAfterIdle(bool flip)
+	{
+		flipAfterIdle = flip;
+	}
+
+	private void SetRandomIdleTime()
+	{
+		idleTime = Random.Range(stateData.minIdleTime, stateData.maxIdleTime);
+	}
 }
