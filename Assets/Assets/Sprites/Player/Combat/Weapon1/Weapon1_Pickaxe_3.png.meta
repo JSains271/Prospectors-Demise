@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 088d5a4464255c94e94344e674f37326
+guid: 3080bf8d939700143ba02f6e8c108c3e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -103,11 +103,71 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CrouchIdle (1)_0
+      name: Weapon1_Pickaxe_3_0
       rect:
         serializedVersion: 2
         x: 0
@@ -121,14 +181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06405e062cfcf7d4dbb6e26e5c0530c5
-      internalID: 1491553822
+      spriteID: 311b573f273a3934f94a58e4d011a0cb
+      internalID: -428496693
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CrouchIdle (1)_1
+      name: Weapon1_Pickaxe_3_1
       rect:
         serializedVersion: 2
         x: 64
@@ -142,14 +202,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93b2894628d683a4fb0107620ab861ef
-      internalID: 831344404
+      spriteID: fea97b3c0569f9847bd962a5fee51b26
+      internalID: -344942321
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CrouchIdle (1)_2
+      name: Weapon1_Pickaxe_3_2
       rect:
         serializedVersion: 2
         x: 128
@@ -163,14 +223,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24ba0f388c3d21f42901166ec86bb44b
-      internalID: 438621716
+      spriteID: 81f07268f7557754fb07e6e67355a125
+      internalID: 198564963
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CrouchIdle (1)_3
+      name: Weapon1_Pickaxe_3_3
       rect:
         serializedVersion: 2
         x: 192
@@ -184,8 +244,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e9c7d5bf2783a24bb7842a9c5afae19
-      internalID: 40108747
+      spriteID: e21651f35379bb44093c10d290dae2e5
+      internalID: 122931106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapon1_Pickaxe_3_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5006fe7bf83f05c4f8d80493a3fdd198
+      internalID: -1990875233
       vertices: []
       indices: 
       edges: []
@@ -201,10 +282,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      CrouchIdle (1)_2: 438621716
-      CrouchIdle (1)_3: 40108747
-      CrouchIdle (1)_0: 1491553822
-      CrouchIdle (1)_1: 831344404
+      Weapon1_Pickaxe_3_2: 198564963
+      Weapon1_Pickaxe_3_1: -344942321
+      Weapon1_Pickaxe_3_4: -1990875233
+      Weapon1_Pickaxe_3_0: -428496693
+      Weapon1_Pickaxe_3_3: 122931106
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

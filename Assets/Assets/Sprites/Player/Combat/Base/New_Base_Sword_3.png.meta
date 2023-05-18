@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2b493ec83318ec84eb556c9b2bdd3b8b
+guid: 664d0c04f4c506a46b564fb8721b178e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -167,7 +167,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LedgeClimb_0
+      name: New_Base_Sword_3_0
       rect:
         serializedVersion: 2
         x: 0
@@ -181,14 +181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dacd1056b2aa04a4f91dfd02ac53deaa
-      internalID: 710482283
+      spriteID: 575151907b938534296a4e41f6882720
+      internalID: 768735619
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LedgeClimb_1
+      name: New_Base_Sword_3_1
       rect:
         serializedVersion: 2
         x: 64
@@ -202,14 +202,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c61dc366359c4a044910b29750f27947
-      internalID: -1863170162
+      spriteID: ecfe0c565a82da34e86d6430a9a14742
+      internalID: 1603693439
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LedgeClimb_2
+      name: New_Base_Sword_3_2
       rect:
         serializedVersion: 2
         x: 128
@@ -223,8 +223,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 723242960c18e8f49afd673d9ccd99fa
-      internalID: -1639856745
+      spriteID: 12dbc87c3f015424c94bd80beb51af82
+      internalID: 2008897452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New_Base_Sword_3_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8843fd2f3680b1f4fac5d91e7492cf1a
+      internalID: 2055518183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New_Base_Sword_3_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3e8875f8fb02cb48a6e156452945ef0
+      internalID: -1055307399
       vertices: []
       indices: 
       edges: []
@@ -240,9 +282,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      LedgeClimb_1: -1863170162
-      LedgeClimb_2: -1639856745
-      LedgeClimb_0: 710482283
+      New_Base_Sword_3_0: 768735619
+      New_Base_Sword_3_4: -1055307399
+      New_Base_Sword_3_2: 2008897452
+      New_Base_Sword_3_3: 2055518183
+      New_Base_Sword_3_1: 1603693439
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1dc1fee5c5cd5194db62b5fcc7a7c67e
+guid: 90022aa816c57984cb38a3257ed3eeee
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -103,15 +103,75 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: New Stuff_0
+      name: Weapon1_Pickaxe_2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 192
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -121,18 +181,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bb4768f3b2368f46922d78f6147ece2
-      internalID: 1240099702
+      spriteID: 7549eb9367235a64195955eb64e7288a
+      internalID: 2063225742
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New Stuff_1
+      name: Weapon1_Pickaxe_2_1
       rect:
         serializedVersion: 2
         x: 64
-        y: 192
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -142,18 +202,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df90f7e69b7dea143b424e904117ad0d
-      internalID: -1507082973
+      spriteID: 5f7673a9f2c5e954ea1490b1a2fbd80c
+      internalID: 1329142242
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New Stuff_2
+      name: Weapon1_Pickaxe_2_2
       rect:
         serializedVersion: 2
         x: 128
-        y: 192
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -163,18 +223,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74686e514e96e234cb2ea062b0957079
-      internalID: -1849836024
+      spriteID: 351acce6e2bfa5744a3bc76d3f4d0ddb
+      internalID: 250585118
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New Stuff_3
+      name: Weapon1_Pickaxe_2_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
+        x: 192
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -184,18 +244,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e2fbae527e4809499dc2156d789f40c
-      internalID: 2056217910
+      spriteID: 8ea10bf3ed61a1344b9831240b4a52db
+      internalID: 80807698
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New Stuff_4
+      name: Weapon1_Pickaxe_2_4
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
+        x: 256
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -205,8 +265,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad353faed61487847afadff56ca65b56
-      internalID: -491027582
+      spriteID: 628338e5bd9450248b6793ae81059578
+      internalID: -1507459219
       vertices: []
       indices: 
       edges: []
@@ -222,11 +282,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      New Stuff_2: -1849836024
-      New Stuff_1: -1507082973
-      New Stuff_3: 2056217910
-      New Stuff_4: -491027582
-      New Stuff_0: 1240099702
+      Weapon1_Pickaxe_2_1: 1329142242
+      Weapon1_Pickaxe_2_3: 80807698
+      Weapon1_Pickaxe_2_2: 250585118
+      Weapon1_Pickaxe_2_4: -1507459219
+      Weapon1_Pickaxe_2_0: 2063225742
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 
