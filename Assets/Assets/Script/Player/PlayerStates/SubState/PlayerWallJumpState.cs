@@ -37,11 +37,11 @@ public class PlayerWallJumpState : PlayerAbilityState
     {
         if (isTouchingWall)
         {
-            wallJumpDirection = -Movement.FacingDirection;
+            wallJumpDirection = Movement.FacingDirection;
         }
         else
         {
-            wallJumpDirection = Movement.FacingDirection;
+            wallJumpDirection = -Movement.FacingDirection;
         }
     }
 }
