@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Combat : CoreComponent, IDamageable, IKnockbackable
 {
+
 	[SerializeField] private GameObject damageParticles;
+
 	private Movement Movement { get => movement ?? core.GetCoreComponent(ref movement); }
 	private CollisionSenses CollisionSenses
 	{
 		get => collisionSenses ?? core.GetCoreComponent(ref collisionSenses);
 	}
 	private Stats Stats { get => stats ?? core.GetCoreComponent(ref stats); }
-
 	private ParticleManager ParticleManager => particleManager ? particleManager : core.GetCoreComponent(ref particleManager);
-
 
 	private Movement movement;
 	private CollisionSenses collisionSenses;

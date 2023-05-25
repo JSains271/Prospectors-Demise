@@ -1451,7 +1451,7 @@ GameObject:
   - component: {fileID: 463134033}
   m_Layer: 7
   m_Name: ParticleManager
-  m_TagString: ParticlesContainer
+  m_TagString: ParticleContainer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1828,7 +1828,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0073571205, y: -0.1876002}
@@ -1996,7 +1996,7 @@ GameObject:
   - component: {fileID: 695283587}
   m_Layer: 7
   m_Name: ParticleManager
-  m_TagString: ParticlesContainer
+  m_TagString: ParticleContainer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35146,7 +35146,7 @@ GameObject:
   - component: {fileID: 1306969934}
   m_Layer: 7
   m_Name: ParticleManager
-  m_TagString: ParticlesContainer
+  m_TagString: ParticleContainer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
