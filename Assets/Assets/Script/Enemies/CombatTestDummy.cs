@@ -8,7 +8,7 @@ public class CombatTestDummy : MonoBehaviour, IDamageable
 
     private Animator anim;
 
-    public void Damage(float amount)
+    public void Damage(int amount)
     {
         Debug.Log(amount + " Damage taken");
 

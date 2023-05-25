@@ -1,42 +1,44 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerStats : CoreComponent
 {
-    [SerializeField]
-    private float maxHealth;
+    public event Action OnHealthZero;
 
     [SerializeField]
-    private GameObject
-        deathChunkParticle,
-        deathBloodParticle;
+    private int maxHealth;
 
-    private float currentHealth;
+    private int currentHealth;
 
-    private GameManager GM;
+    public HealthBar healthBar;
 
     private void Start()
     {
         currentHealth = maxHealth;
-        GM = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        healthBar.SetMaxHealth(maxHealth);
     }
 
-    public void DecreaseHealth(float amount)
+    public void DecreaseHealth(int amount)
     {
         currentHealth -= amount;
 
-        if (currentHealth <= 0.0f)
+        healthBar.SetHealth(currentHealth);
+
+        if (currentHealth <= 0)
         {
-            Die();
+            currentHealth = 0;
+
+            OnHealthZero?.Invoke();
+
+            Debug.Log("Health is zero!!");
         }
     }
 
-    private void Die()
+    public void IncreaseHealth(int amount)
     {
-        Instantiate(deathChunkParticle, transform.position, deathChunkParticle.transform.rotation);
-        Instantiate(deathBloodParticle, transform.position, deathBloodParticle.transform.rotation);
-        GM.Respawn();
-        Destroy(gameObject);
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
     }
 }

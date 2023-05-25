@@ -7,19 +7,25 @@ public class Stats : CoreComponent
 {
     public event Action OnHealthZero;
 
-    [SerializeField] private float maxHealth;
-    private float currentHealth;
+    [SerializeField] private int maxHealth;
+    private int currentHealth;
+
+    public HealthBar healthBar;
 
     protected override void Awake()
     {
         base.Awake();
 
         currentHealth = maxHealth;
+
+        healthBar.SetMaxHealth(maxHealth);
     }
 
-    public void DecreaseHealth(float amount)
+    public void DecreaseHealth(int amount)
     {
         currentHealth -= amount;
+
+        healthBar.SetHealth(currentHealth);
 
         if (currentHealth <= 0)
         {
@@ -31,7 +37,7 @@ public class Stats : CoreComponent
         }
     }
 
-    public void IncreaseHealth(float amount)
+    public void IncreaseHealth(int amount)
     {
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
     }

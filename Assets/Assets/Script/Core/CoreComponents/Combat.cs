@@ -30,7 +30,7 @@ public class Combat : CoreComponent, IDamageable, IKnockbackable
 		CheckKnockback();
 	}
 
-	public void Damage(float amount)
+	public void Damage(int amount)
 	{
 		Debug.Log(core.transform.parent.name + " Damaged!");
 		Stats?.DecreaseHealth(amount);
