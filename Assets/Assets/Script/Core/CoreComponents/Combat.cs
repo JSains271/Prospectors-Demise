@@ -56,4 +56,7 @@ public class Combat : CoreComponent, IDamageable, IKnockbackable
 			Movement.CanSetVelocity = true;
 		}
 	}
+
+
+
 }

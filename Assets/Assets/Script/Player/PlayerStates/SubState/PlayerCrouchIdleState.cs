@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCrouchIdleState : PlayerGroundedState
 {
-    public PlayerCrouchIdleState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
+    public PlayerCrouchIdleState(Player player, Combat combat, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
     }
 
@@ -14,6 +14,7 @@ public class PlayerCrouchIdleState : PlayerGroundedState
 
         Movement?.SetVelocityZero();
         player.SetColliderHeight(playerData.crouchColliderHeight);
+
     }
 
     public override void Exit()
