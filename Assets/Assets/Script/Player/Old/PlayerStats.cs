@@ -7,15 +7,15 @@ public class PlayerStats : CoreComponent
 {
     public event Action OnHealthZero;
 
-    [SerializeField]
-    private int maxHealth;
-
+    [SerializeField] private int maxHealth;
     private int currentHealth;
 
     public HealthBar healthBar;
 
-    private void Start()
+    protected override void Awake()
     {
+        base.Awake();
+
         currentHealth = maxHealth;
 
         healthBar.SetMaxHealth(maxHealth);

@@ -33,13 +33,13 @@ public class Combat : CoreComponent, IDamageable, IKnockbackable
 	public void Damage(int amount)
 	{
 		Debug.Log(core.transform.parent.name + " Damaged!");
-		Stats?.DecreaseHealth(amount);
-		ParticleManager?.StartParticlesWithRandomRotation(damageParticles);
+		Stats.DecreaseHealth(amount);
+		ParticleManager.StartParticlesWithRandomRotation(damageParticles);
 	}
 
 	public void Knockback(Vector2 angle, float strength, int direction)
 	{
-		Movement?.SetVelocity(strength, angle, direction);
+		Movement.SetVelocity(strength, angle, direction);
 		Movement.CanSetVelocity = false;
 		isKnockbackActive = true;
 		knockbackStartTime = Time.time;
@@ -48,7 +48,7 @@ public class Combat : CoreComponent, IDamageable, IKnockbackable
 	private void CheckKnockback()
 	{
 		if (isKnockbackActive
-		  && ((Movement?.CurrentVelocity.y <= 0.01f && CollisionSenses.Ground)
+		  && ((Movement.CurrentVelocity.y <= 0.01f && CollisionSenses.Ground)
 					|| Time.time >= knockbackStartTime + maxKnockbackTime)
 		)
 		{

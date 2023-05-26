@@ -31,7 +31,7 @@ public class Stats : CoreComponent
         {
             currentHealth = 0;
 
-            OnHealthZero?.Invoke();
+            OnHealthZero.Invoke();
 
             Debug.Log("Health is zero!!");
         }

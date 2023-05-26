@@ -2133,7 +2133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba431c0ce91b11c4d938a040e41e8745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 20
   healthBar: {fileID: 0}
 --- !u!1 &690596306
 GameObject:
@@ -35417,7 +35417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba431c0ce91b11c4d938a040e41e8745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
+  maxHealth: 100
   healthBar: {fileID: 381408379}
 --- !u!1 &1306969932
 GameObject:
@@ -40852,3 +40852,28 @@ MonoBehaviour:
   deathParticles:
   - {fileID: 9110886732615765083, guid: 0597da9cf381b1446886ceea83a17e2b, type: 3}
   - {fileID: 6997396826325383962, guid: 62f4b0b040f70b74ea58df1f1ebaca7a, type: 3}
+--- !u!1 &2146209812 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2151145363015869593, guid: 89925e3c96bea6b44b6ec877ab7a8e19, type: 3}
+  m_PrefabInstance: {fileID: 1693966378}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2146209817
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146209812}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 54e876caa81a96b4f93b8f0c9edb138b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
