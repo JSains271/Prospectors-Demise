@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    //private AttackDetails attackDetails;
 
     private float speed;
     private float travelDistance;
@@ -12,8 +11,6 @@ public class Projectile : MonoBehaviour
 
     [SerializeField]
     private float gravity;
-    [SerializeField]
-    private float damageRadius;
 
     private Rigidbody2D rb;
 
@@ -27,9 +24,13 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     private Transform damagePosition;
 
+    public Stats stats;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        stats= GetComponent<Stats>();
 
         rb.gravityScale = 0.0f;
         rb.velocity = transform.right * speed;
@@ -43,41 +44,11 @@ public class Projectile : MonoBehaviour
     {
         if (!hasHitGround)
         {
-            //attackDetails.position = transform.position;
 
             if (isGravityOn)
             {
                 float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
                 transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            }
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        if (!hasHitGround)
-        {
-            Collider2D damageHit = Physics2D.OverlapCircle(damagePosition.position, damageRadius, whatIsPlayer);
-            Collider2D groundHit = Physics2D.OverlapCircle(damagePosition.position, damageRadius, whatIsGround);
-
-            if (damageHit)
-            {
-                //damageHit.transform.SendMessage("Damage", attackDetails);
-                Destroy(gameObject);
-            }
-
-            if (groundHit)
-            {
-                hasHitGround = true;
-                rb.gravityScale = 0f;
-                rb.velocity = Vector2.zero;
-            }
-
-
-            if (Mathf.Abs(xStartPos - transform.position.x) >= travelDistance && !isGravityOn)
-            {
-                isGravityOn = true;
-                rb.gravityScale = gravity;
             }
         }
     }
@@ -89,8 +60,12 @@ public class Projectile : MonoBehaviour
         //attackDetails.damageAmount = damage;
     }
 
-    private void OnDrawGizmos()
+    public void OnTriggerEnter(Collider other)
     {
-        Gizmos.DrawWireSphere(damagePosition.position, damageRadius);
+        if(other.gameObject.tag == "Player")
+        {
+            other.GetComponent<Stats>().DecreaseHealth(10);
+            Destroy(this.gameObject);
+        }
     }
 }

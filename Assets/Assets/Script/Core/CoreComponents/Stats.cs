@@ -2,15 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Stats : CoreComponent
 {
     public event Action OnHealthZero;
 
     [SerializeField] private int maxHealth;
-    private int currentHealth;
+    public int currentHealth;
 
-    public HealthBar healthBar;
+    public Slider healthBar;
 
     protected override void Awake()
     {
@@ -18,14 +19,14 @@ public class Stats : CoreComponent
 
         currentHealth = maxHealth;
 
-        healthBar.SetMaxHealth(maxHealth);
+        healthBar.maxValue = maxHealth;
     }
 
     public void DecreaseHealth(int amount)
     {
         currentHealth -= amount;
 
-        healthBar.SetHealth(currentHealth);
+        healthBar.value = currentHealth;
 
         if (currentHealth <= 0)
         {
