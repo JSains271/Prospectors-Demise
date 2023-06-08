@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Projectile : CoreComponent
 {
     private AttackDetails attackDetails;
 
@@ -26,6 +27,7 @@ public class Projectile : MonoBehaviour
     private LayerMask whatIsPlayer;
     [SerializeField]
     private Transform damagePosition;
+    
 
     private void Start()
     {
@@ -62,7 +64,7 @@ public class Projectile : MonoBehaviour
 
             if (damageHit)
             {
-                Combat.Damage(IDamageable.amount);
+                
                 damageHit.transform.SendMessage("Damage", attackDetails);
                 Destroy(gameObject);
             }
@@ -73,7 +75,6 @@ public class Projectile : MonoBehaviour
                 rb.gravityScale = 0f;
                 rb.velocity = Vector2.zero;
             }
-
 
             if (Mathf.Abs(xStartPos - transform.position.x) >= travelDistance && !isGravityOn)
             {
