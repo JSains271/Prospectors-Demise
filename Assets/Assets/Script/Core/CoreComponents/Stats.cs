@@ -2,24 +2,22 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Stats : CoreComponent
 {
     public event Action OnHealthZero;
 
-    [SerializeField] private int maxHealth;
-    public int currentHealth;
+    [SerializeField] private float maxHealth;
+    private float currentHealth;
 
     protected override void Awake()
     {
         base.Awake();
 
         currentHealth = maxHealth;
-
     }
 
-    public void DecreaseHealth(int amount)
+    public void DecreaseHealth(float amount)
     {
         currentHealth -= amount;
 
@@ -27,13 +25,13 @@ public class Stats : CoreComponent
         {
             currentHealth = 0;
 
-            OnHealthZero.Invoke();
+            OnHealthZero?.Invoke();
 
             Debug.Log("Health is zero!!");
         }
     }
 
-    public void IncreaseHealth(int amount)
+    public void IncreaseHealth(float amount)
     {
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
     }
