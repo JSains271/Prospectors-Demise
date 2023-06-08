@@ -11,22 +11,17 @@ public class Stats : CoreComponent
     [SerializeField] private int maxHealth;
     public int currentHealth;
 
-    public Slider healthBar;
-
     protected override void Awake()
     {
         base.Awake();
 
         currentHealth = maxHealth;
 
-        healthBar.maxValue = maxHealth;
     }
 
     public void DecreaseHealth(int amount)
     {
         currentHealth -= amount;
-
-        healthBar.value = currentHealth;
 
         if (currentHealth <= 0)
         {

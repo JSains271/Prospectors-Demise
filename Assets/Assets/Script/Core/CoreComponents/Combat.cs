@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,6 +25,7 @@ public class Combat : CoreComponent, IDamageable, IKnockbackable
 
 	private bool isKnockbackActive;
 	private float knockbackStartTime;
+
 
 	public override void LogicUpdate()
 	{
@@ -56,7 +58,4 @@ public class Combat : CoreComponent, IDamageable, IKnockbackable
 			Movement.CanSetVelocity = true;
 		}
 	}
-
-
-
 }

@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Projectile : CoreComponent
 {
+    private AttackDetails attackDetails;
 
     private float speed;
     private float travelDistance;
@@ -11,6 +13,8 @@ public class Projectile : MonoBehaviour
 
     [SerializeField]
     private float gravity;
+    [SerializeField]
+    private float damageRadius;
 
     private Rigidbody2D rb;
 
@@ -23,14 +27,11 @@ public class Projectile : MonoBehaviour
     private LayerMask whatIsPlayer;
     [SerializeField]
     private Transform damagePosition;
-
-    public Stats stats;
+    
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
-        stats= GetComponent<Stats>();
 
         rb.gravityScale = 0.0f;
         rb.velocity = transform.right * speed;
@@ -44,6 +45,7 @@ public class Projectile : MonoBehaviour
     {
         if (!hasHitGround)
         {
+            attackDetails.position = transform.position;
 
             if (isGravityOn)
             {
@@ -53,19 +55,44 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (!hasHitGround)
+        {
+            Collider2D damageHit = Physics2D.OverlapCircle(damagePosition.position, damageRadius, whatIsPlayer);
+            Collider2D groundHit = Physics2D.OverlapCircle(damagePosition.position, damageRadius, whatIsGround);
+
+            if (damageHit)
+            {
+                
+                damageHit.transform.SendMessage("Damage", attackDetails);
+                Destroy(gameObject);
+            }
+
+            if (groundHit)
+            {
+                hasHitGround = true;
+                rb.gravityScale = 0f;
+                rb.velocity = Vector2.zero;
+            }
+
+            if (Mathf.Abs(xStartPos - transform.position.x) >= travelDistance && !isGravityOn)
+            {
+                isGravityOn = true;
+                rb.gravityScale = gravity;
+            }
+        }
+    }
+
     public void FireProjectile(float speed, float travelDistance, float damage)
     {
         this.speed = speed;
         this.travelDistance = travelDistance;
-        //attackDetails.damageAmount = damage;
+        attackDetails.damageAmount = damage;
     }
 
-    public void OnTriggerEnter(Collider other)
+    private void OnDrawGizmos()
     {
-        if(other.gameObject.tag == "Player")
-        {
-            other.GetComponent<Stats>().DecreaseHealth(10);
-            Destroy(this.gameObject);
-        }
+        Gizmos.DrawWireSphere(damagePosition.position, damageRadius);
     }
 }

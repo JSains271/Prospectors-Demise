@@ -5,7 +5,8 @@ using UnityEngine;
 public class E1_MoveState : MoveState
 {
     private Enemy1 enemy;
-    public E1_MoveState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_MoveState stateData, Enemy1 enemy) : base(entity, stateMachine, animBoolName, stateData)
+
+    public E1_MoveState(Entity etity, FiniteStateMachine stateMachine, string animBoolName, D_MoveState stateData, Enemy1 enemy) : base(etity, stateMachine, animBoolName, stateData)
     {
         this.enemy = enemy;
     }
@@ -28,7 +29,7 @@ public class E1_MoveState : MoveState
         {
             stateMachine.ChangeState(enemy.playerDetectedState);
         }
-        else if(isDetectingWall || isDetectingLedge)
+        else if (isDetectingWall || !isDetectingLedge)
         {
             enemy.idleState.SetFlipAfterIdle(true);
             stateMachine.ChangeState(enemy.idleState);
